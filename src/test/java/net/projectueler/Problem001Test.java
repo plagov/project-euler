@@ -9,13 +9,13 @@ class Problem001Test {
 
     @Test
     void testSample() {
-        var sum = problem001.sumOfMultipliersOf3And5Below(10);
+        var sum = problem001.sumOfMultipliersOf3And5BelowNumber(10);
         Assertions.assertEquals(23, sum);
     }
 
     @Test
     void testReal() {
-        var sum = problem001.sumOfMultipliersOf3And5Below(1_000);
+        var sum = problem001.sumOfMultipliersOf3And5BelowNumber(1_000);
         Assertions.assertEquals(233168, sum);
     }
 }
