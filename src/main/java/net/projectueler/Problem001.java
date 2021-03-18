@@ -2,6 +2,9 @@ package net.projectueler;
 
 import java.util.stream.IntStream;
 
+/**
+ * https://projecteuler.net/problem=1
+ */
 public class Problem001 {
 
     public int sumOfMultipliersOf3And5BelowNumber(int upperNumber) {
