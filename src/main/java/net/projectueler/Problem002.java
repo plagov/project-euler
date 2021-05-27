@@ -3,13 +3,9 @@ package net.projectueler;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * https://projecteuler.net/problem=2
- */
 public class Problem002 {
 
-	private Set<Long> fibonacciSequenceUntil() {
-		long limit = 4_000_000;
+	private static Set<Long> fibonacciSequenceUntil(long limit) {
 		long first = 1;
 		long second = 2;
 		long next;
@@ -23,8 +19,8 @@ public class Problem002 {
 		return set;
 	}
 
-	public Long sumOfEvenFibonacciTerms() {
-		return fibonacciSequenceUntil()
+	public Long sumOfEvenFibonacciTermsUntil(int limit) {
+		return fibonacciSequenceUntil(limit)
 				.stream()
 				.filter(term -> term % 2 == 0)
 				.mapToLong(Long::longValue)

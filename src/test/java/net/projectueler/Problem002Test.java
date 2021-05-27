@@ -7,7 +7,7 @@ class Problem002Test {
 
 	@Test
 	void sumOfEvenFibonacciTerms() {
-		var sum = new Problem002().sumOfEvenFibonacciTerms();
+		var sum = new Problem002().sumOfEvenFibonacciTermsUntil(4_000_000);
 		Assertions.assertEquals(4_613_732, sum);
 	}
 }
