@@ -18,3 +18,17 @@ jobs:
 
       - name: Qodana - Code Inspection
         uses: JetBrains/qodana-action@v2.0-eap
+
+      - name: Archive results
+        uses: actions/upload-artifact@v2
+        with:
+          name: qodana-results
+          if-no-files-found: error
+          path: qodana/report/results
+
+      - name: Print results
+        run: |
+          echo "Qodana has finished successfully!"
+          echo "Download an artifact qodana-results.zip. Code Inspection results are part of file result-allProblems.json."
+          echo "________________________________________________________________"
+          cat ${GITHUB_WORKSPACE}/qodana/report/results/result-allProblems.json
