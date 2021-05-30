@@ -1,4 +1,4 @@
-package net.projectueler;
+package net.projecteuler;
 
 import java.util.Collections;
 import org.junit.jupiter.api.Assertions;
