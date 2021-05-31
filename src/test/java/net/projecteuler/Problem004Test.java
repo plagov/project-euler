@@ -9,13 +9,13 @@ class Problem004Test {
 
   @Test
   void maxPalindromeSampleInput() {
-    var maxPalindrome = problem004.maxPalindrome(99L);
+    var maxPalindrome = problem004.maxPalindromeProductOfTwoNumbersWithNumberOfDigits(2);
     Assertions.assertEquals(9009, maxPalindrome);
   }
 
   @Test
   void maxPalindromeTaskInput() {
-    var maxPalindrome = problem004.maxPalindrome(999L);
+    var maxPalindrome = problem004.maxPalindromeProductOfTwoNumbersWithNumberOfDigits(3);
     Assertions.assertEquals(906609, maxPalindrome);
   }
 }
