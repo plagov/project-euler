@@ -3,9 +3,8 @@ package net.projecteuler;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.IntStream;
+import java.util.stream.Collectors;
 import java.util.stream.LongStream;
-import java.util.stream.Stream;
 
 public class Problem004 {
 
@@ -15,20 +14,20 @@ public class Problem004 {
     return original.equals(reversed);
   }
 
-  public Set<Long> palindromeNumbers() {
+  public Long maxPalindrome(Long maxNumber) {
 
     Set<Long> palindromes = new HashSet<>();
 
-    LongStream.range(100, 1000).forEach(first -> {
-      LongStream.range(100, 1000).forEach(second -> {
-        var product = first * second;
-        if (isPalindrome(product)) {
-          palindromes.add(product);
-        }
-      });
-    } );
+    LongStream.rangeClosed(1, maxNumber).forEach(first ->
+        LongStream.rangeClosed(1, maxNumber).forEach(second -> {
+          var product = first * second;
+          if (isPalindrome(product)) {
+            palindromes.add(product);
+          }
+        })
+    );
 
-    return palindromes;
+    return Collections.max(palindromes);
   }
 
 }
