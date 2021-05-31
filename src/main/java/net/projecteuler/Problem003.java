@@ -1,4 +1,4 @@
-package net.projectueler;
+package net.projecteuler;
 
 import java.util.HashSet;
 import java.util.Set;
