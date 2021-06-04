@@ -7,7 +7,7 @@ import java.util.stream.LongStream;
 
 public class Problem004 {
 
-  private boolean isPalindrome(Long number) {
+  private static boolean isPalindrome(Long number) {
     var original = number.toString();
     var reversed = new StringBuilder(original).reverse().toString();
     return original.equals(reversed);
@@ -32,7 +32,7 @@ public class Problem004 {
     return Collections.max(palindromes);
   }
 
-  private RangeLimits rangeLimits(int numberOfDigits) {
+  private static RangeLimits rangeLimits(int numberOfDigits) {
     var stringFrom = "1" + "0".repeat(numberOfDigits - 1);
     var from = Integer.parseInt(stringFrom);
     var to = from * 10 - 1;
