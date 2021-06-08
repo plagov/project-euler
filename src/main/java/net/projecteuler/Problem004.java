@@ -17,8 +17,8 @@ public class Problem004 {
 
     Set<Long> palindromes = new HashSet<>();
 
-    var from = rangeLimits(numberOfDigits).start;
-    var to = rangeLimits(numberOfDigits).end;
+    var from = rangeLimits(numberOfDigits).start();
+    var to = rangeLimits(numberOfDigits).end();
 
     LongStream.rangeClosed(from, to).forEach(first ->
         LongStream.rangeClosed(from, to).forEach(second -> {
@@ -41,12 +41,4 @@ public class Problem004 {
 
 }
 
-class RangeLimits {
-  int start;
-  int end;
-
-  public RangeLimits(int start, int end) {
-    this.start = start;
-    this.end = end;
-  }
-}
+record RangeLimits (int start, int end) { }
