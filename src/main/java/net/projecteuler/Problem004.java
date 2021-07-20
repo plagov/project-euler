@@ -42,8 +42,8 @@ public class Problem004 {
 }
 
 class RangeLimits {
-  private int start;
-  private int end;
+  private final int start;
+  private final int end;
 
   public RangeLimits(int start, int end) {
     this.start = start;
