@@ -1,5 +1,6 @@
 plugins {
     java
+    id("info.solidsoft.pitest") version "1.6.0"
 }
 
 group = "io.plagov"
@@ -15,4 +16,11 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+pitest {
+    targetClasses.set(listOf("net.projecteuler.*"))
+    timestampedReports.set(false)
+    junit5PluginVersion.set("0.12")
+    threads.set(4)
 }
