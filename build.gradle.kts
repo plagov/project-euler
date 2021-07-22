@@ -21,6 +21,6 @@ tasks.test {
 pitest {
     targetClasses.set(listOf("net.projecteuler.*"))
     timestampedReports.set(false)
-    junit5PluginVersion.set("0.12")
+    junit5PluginVersion.set("0.14")
     threads.set(4)
 }
