@@ -1,6 +1,21 @@
 package net.projecteuler;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Problem007 {
+
+  public int primeNumberByIndex(int index) {
+    List<Integer> primes = new ArrayList<>();
+    int number = 2;
+    while (primes.size() < index) {
+      if (isPrimeNumber(number)) {
+        primes.add(number);
+      }
+      number++;
+    }
+    return primes.get(primes.size() - 1);
+  }
 
   private boolean isPrimeNumber(int number) {
     int divisibleNumber = 2;
@@ -13,7 +28,4 @@ public class Problem007 {
     return true;
   }
 
-  public static void main(String[] args) {
-    System.out.println(new Problem007().isPrimeNumber(107));
-  }
 }
