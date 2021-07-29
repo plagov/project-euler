@@ -18,6 +18,6 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 16
+          java-version: 11
       - name: Run JUnit tests
         run: ./gradlew test
