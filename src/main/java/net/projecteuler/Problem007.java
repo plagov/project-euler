@@ -19,7 +19,7 @@ public class Problem007 {
 
   private boolean isPrimeNumber(int number) {
     int divisibleNumber = 2;
-    while (number != divisibleNumber) { // можно сократь условие до квадрат divisibleNumber не больше number
+    while (number != divisibleNumber) {
       if (number % divisibleNumber == 0) {
         return false;
       }
