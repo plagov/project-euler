@@ -32,20 +32,20 @@ public class Problem004 {
     return Collections.max(palindromes);
   }
 
-  private static RangeLimits rangeLimits(int numberOfDigits) {
+  private static RangeLimit rangeLimits(int numberOfDigits) {
     var stringFrom = "1" + "0".repeat(numberOfDigits - 1);
     var from = Integer.parseInt(stringFrom);
     var to = from * 10 - 1;
-    return new RangeLimits(from, to);
+    return new RangeLimit(from, to);
   }
 
 }
 
-class RangeLimits {
+class RangeLimit {
   private final int start;
   private final int end;
 
-  public RangeLimits(int start, int end) {
+  public RangeLimit(int start, int end) {
     this.start = start;
     this.end = end;
   }
