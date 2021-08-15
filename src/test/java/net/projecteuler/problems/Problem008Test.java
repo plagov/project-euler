@@ -9,13 +9,13 @@ class Problem008Test {
 
   @Test
   void highestProductOfAdjacentDigitsWithSampleInput() {
-    var highestProduct = problem008.highestProductOfAdjacentNumberOfDigit(4);
+    var highestProduct = problem008.highestProductOfAdjacentDigits(4);
     Assertions.assertEquals(5832, highestProduct);
   }
 
   @Test
   void highestProductOfAdjacentDigitsWithTaskInput() {
-    var highestProduct = problem008.highestProductOfAdjacentNumberOfDigit(13);
+    var highestProduct = problem008.highestProductOfAdjacentDigits(13);
     Assertions.assertEquals(23_514_624_000L, highestProduct);
   }
 }

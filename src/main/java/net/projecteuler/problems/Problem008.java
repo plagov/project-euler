@@ -15,7 +15,7 @@ public class Problem008 {
     return Arrays.stream(string.split("")).map(Integer::valueOf).collect(Collectors.toList());
   }
 
-  public long highestProductOfAdjacentNumberOfDigit(int numberOfAdjacentDigits) {
+  public long highestProductOfAdjacentDigits(int numberOfAdjacentDigits) {
     var allDigits = getListOfDigits();
     var startIndex = 0;
     var endIndex = numberOfAdjacentDigits;
