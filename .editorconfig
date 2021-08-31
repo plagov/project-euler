@@ -7,3 +7,5 @@ insert_final_newline = true
 [*.{java, kts}]
 indent_style = space
 indent_size = 2
+ij_java_class_count_to_use_import_on_demand = 999
+ij_java_names_count_to_use_import_on_demand = 999
