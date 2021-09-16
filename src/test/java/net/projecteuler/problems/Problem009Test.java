@@ -9,7 +9,7 @@ class Problem009Test {
 
   @Test
   void productOfPythagoreanTripletWhichSumIsEqualTo() {
-    int productOfPythagoreanTriplet = problem9.productOfPythagoreanTripletWhichSumIsEqualTo(1000);
+    long productOfPythagoreanTriplet = problem9.productOfPythagoreanTripletWhichSumIsEqualTo(1000);
     Assertions.assertEquals(31_875_000, productOfPythagoreanTriplet);
   }
 }
