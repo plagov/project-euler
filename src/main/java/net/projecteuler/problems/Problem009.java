@@ -16,7 +16,7 @@ public class Problem009 {
       sum = x + y + z;
       if (sum > sumOfPythagoreanTriplet) {
         v++;
-        u = v +1;
+        u = v + 1;
       }
       u++;
     }
