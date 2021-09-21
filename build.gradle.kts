@@ -1,6 +1,6 @@
 plugins {
     java
-    id("info.solidsoft.pitest") version "1.6.0"
+    id("info.solidsoft.pitest") version "1.7.0"
 }
 
 group = "io.plagov"
