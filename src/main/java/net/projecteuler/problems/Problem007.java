@@ -7,25 +7,23 @@ public class Problem007 {
 
   public int primeNumberByIndex(int index) {
     List<Integer> primes = new ArrayList<>();
-    int number = 2;
-    while (primes.size() < index) {
-      if (isPrimeNumber(number)) {
-        primes.add(number);
+
+    for (int i = 2; primes.size() < index; i++) {
+      if (isPrimeNumber(i)) {
+        primes.add(i);
       }
-      number++;
     }
     return primes.get(primes.size() - 1);
   }
 
   private boolean isPrimeNumber(int number) {
-    int divisibleNumber = 2;
-    while (number != divisibleNumber) {
-      if (number % divisibleNumber == 0) {
+    var max = Math.sqrt(number);
+    for (int i = 2; i <= max; i++) {
+      if (number % i == 0) {
         return false;
       }
-      divisibleNumber++;
     }
-    return true;
+    return number > 1;
   }
 
 }
