@@ -1,17 +1,17 @@
 package net.projecteuler.problems;
 
-import net.projecteuler.util.FileUtil;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static net.projecteuler.util.FileUtil.readInputFile;
+
 public class Problem008 {
 
   private List<Integer> getListOfDigits() {
-    String string = FileUtil.readInputFile("problem008.txt").replace("\n", "");
+    String string = readInputFile("problem008.txt").replace("\n", "");
     return Arrays.stream(string.split("")).map(Integer::valueOf).collect(Collectors.toList());
   }
 

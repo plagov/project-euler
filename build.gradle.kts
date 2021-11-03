@@ -1,6 +1,7 @@
 plugins {
     java
     id("info.solidsoft.pitest") version "1.7.0"
+    id("org.jetbrains.qodana") version "0.1.13"
 }
 
 group = "io.plagov"
@@ -23,4 +24,10 @@ pitest {
     timestampedReports.set(false)
     junit5PluginVersion.set("0.14")
     threads.set(4)
+}
+
+qodana {
+  saveReport.set(true)
+  showReport.set(true)
+  showReportPort.set(8081)
 }
