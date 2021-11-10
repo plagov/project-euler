@@ -30,4 +30,5 @@ qodana {
   saveReport.set(true)
   showReport.set(true)
   showReportPort.set(8081)
+  dockerImageName.set("jetbrains/qodana-jvm:latest")
 }
