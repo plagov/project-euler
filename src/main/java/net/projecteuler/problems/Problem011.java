@@ -4,8 +4,10 @@ import net.projecteuler.util.FileUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Problem011 {
   public static void main(String[] args) {
@@ -41,7 +43,6 @@ public class Problem011 {
         var diagonalRange = IntStream.range(0, 4).map(n -> input.get(finalRow + n).get(finalColumn + n)).boxed().toList();
         var product = diagonalRange.stream().reduce(1, (a, b) -> a * b);
         leftToRight.add(product);
-        System.out.println("");
       }
     }
 
@@ -55,6 +56,12 @@ public class Problem011 {
         rightToLeft.add(product);
       }
     }
+
+    var result = Stream.of(horizontal, vertical, leftToRight, rightToLeft)
+      .flatMap(Collection::stream).mapToInt(v -> v).max().orElseThrow();
+
+    System.out.println("Result: " + result);
+
   }
 
 }
