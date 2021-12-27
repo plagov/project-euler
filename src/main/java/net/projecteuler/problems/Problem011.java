@@ -44,6 +44,17 @@ public class Problem011 {
         System.out.println("");
       }
     }
+
+    List<Integer> rightToLeft = new ArrayList<>();
+    for (var row = 0; row <= input.size() - window; row++) {
+      int finalRow = row;
+      for (var column = 3; column < input.size(); column++) {
+        int finalColumn = column;
+        var diagonalRange = IntStream.range(0, 4).map(n -> input.get(finalRow + n).get(finalColumn - n)).boxed().toList();
+        var product = diagonalRange.stream().reduce(1, (a, b) -> a * b);
+        rightToLeft.add(product);
+      }
+    }
   }
 
 }
