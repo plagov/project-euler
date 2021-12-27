@@ -1,0 +1,36 @@
+package net.projecteuler.problems;
+
+import net.projecteuler.util.FileUtil;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Problem011 {
+  public static void main(String[] args) {
+    var input = Arrays.stream(FileUtil.readInputFile("problem011.txt").split("\n"))
+      .map(line -> Arrays.stream(line.split(" ")).map(Integer::valueOf).toList()).toList();
+
+    var window = 4;
+
+    List<Integer> horizontal = new ArrayList<>();
+    for (var row = 0; row < input.size(); row++) {
+      var line = input.get(row);
+      for (var column = 0; column <= input.size() - window; column++) {
+        var product = line.subList(column, column + window).stream().reduce(1, (a, b) -> a * b);
+        horizontal.add(product);
+      }
+    }
+
+    List<Integer> vertical = new ArrayList<>();
+    for (var column = 0; column < input.size(); column++) {
+      int finalColumn = column;
+      for (var row = 0; row <= input.size() - window; row++) {
+        var currentColumn = input.stream().mapToInt(integers -> integers.get(finalColumn)).boxed().toList();
+        var product = currentColumn.subList(row, row + window).stream().reduce(1, (a, b) -> a * b);
+        vertical.add(product);
+      }
+    }
+  }
+
+}
