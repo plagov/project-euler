@@ -5,6 +5,7 @@ import net.projecteuler.util.FileUtil;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Problem011 {
   public static void main(String[] args) {
@@ -29,6 +30,18 @@ public class Problem011 {
         var currentColumn = input.stream().mapToInt(integers -> integers.get(finalColumn)).boxed().toList();
         var product = currentColumn.subList(row, row + window).stream().reduce(1, (a, b) -> a * b);
         vertical.add(product);
+      }
+    }
+
+    List<Integer> leftToRight = new ArrayList<>();
+    for (var row = 0; row <= input.size() - window; row++) {
+      int finalRow = row;
+      for (var column = 0; column <= input.size() - window; column++) {
+        int finalColumn = column;
+        var diagonalRange = IntStream.range(0, 4).map(n -> input.get(finalRow + n).get(finalColumn + n)).boxed().toList();
+        var product = diagonalRange.stream().reduce(1, (a, b) -> a * b);
+        leftToRight.add(product);
+        System.out.println("");
       }
     }
   }
