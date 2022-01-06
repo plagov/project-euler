@@ -15,7 +15,7 @@ public class Problem012 {
       numberOfFactors = factorsOfNumber(triangleNumber).size();
       triangleNumberCounter++;
     }
-
+    System.out.println("NUMBER IS: " + triangleNumber);
     return triangleNumber;
   }
 
