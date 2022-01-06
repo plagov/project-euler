@@ -1,48 +1,31 @@
 package net.projecteuler.problems;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.stream.Collectors;
+
+import static net.projecteuler.util.PrimeFactorization.primeFactorizationOfTheNumber;
+import static net.projecteuler.util.TriangleNumber.triangleNumberByCounter;
 
 public class Problem012 {
 
   public Long solve() {
     var numberOfFactors = 0L;
-    var triangleNumberCounter = 2;
+    var triangleNumberCounter = 1;
     var triangleNumber = 0L;
 
     while (numberOfFactors <= 500) {
-      triangleNumber = (long) (0.5 * triangleNumberCounter * (triangleNumberCounter + 1));
-      numberOfFactors = factorsOfNumber(triangleNumber).size();
+      triangleNumber = triangleNumberByCounter(triangleNumberCounter);
+      numberOfFactors = numberOfDivisorsForNumber(triangleNumber);
       triangleNumberCounter++;
     }
-    System.out.println("NUMBER IS: " + triangleNumber);
     return triangleNumber;
   }
 
-  public Set<Long> factorsOfNumber(long number) {
-    Set<Long> factors = new HashSet<>();
-    for (var i = 1L; i <= number; i++) {
-      if (number % i == 0) {
-        factors.add(i);
-      }
-    }
-    return factors;
-  }
-
-  public Set<Integer> primeFactorizationOfTheNumber(long triangleNumber) {
-    Set<Integer> primes = new HashSet<>();
-    var remainder = triangleNumber;
-    var prime = 2;
-
-    while (remainder != 1) {
-      if (remainder % prime == 0) {
-        primes.add(prime);
-        remainder = remainder / prime;
-      } else {
-        prime++;
-      }
-    }
-    return primes;
+  private long numberOfDivisorsForNumber(long number) {
+    var exponentsOfPrimeFactorization = primeFactorizationOfTheNumber(number)
+      .stream()
+      .collect(Collectors.groupingBy(Integer::intValue, Collectors.counting()))
+      .values();
+    return exponentsOfPrimeFactorization.stream().map(aLong -> aLong + 1).reduce(1L, Math::multiplyExact);
   }
 }
 
