@@ -25,7 +25,7 @@ public class Problem012 {
       .stream()
       .collect(Collectors.groupingBy(Integer::intValue, Collectors.counting()))
       .values();
-    return exponentsOfPrimeFactorization.stream().map(aLong -> aLong + 1).reduce(1L, Math::multiplyExact);
+    return exponentsOfPrimeFactorization.stream().map(n -> n + 1).reduce(1L, Math::multiplyExact);
   }
 }
 
