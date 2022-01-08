@@ -5,9 +5,9 @@ import java.util.List;
 
 public class PrimeFactorization {
 
-  public static List<Integer> primeFactorizationOfTheNumber(long triangleNumber) {
+  public static List<Integer> primeFactorizationOfTheNumber(long number) {
     List<Integer> primes = new ArrayList<>();
-    var remainder = triangleNumber;
+    var remainder = number;
     var prime = 2;
 
     while (remainder != 1) {
