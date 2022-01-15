@@ -10,6 +10,6 @@ public class Problem014Test {
   @Test
   void solve() {
     var numberOfTerms = problem14.solve();
-    Assertions.assertEquals(10, numberOfTerms);
+    Assertions.assertEquals(42, numberOfTerms);
   }
 }
