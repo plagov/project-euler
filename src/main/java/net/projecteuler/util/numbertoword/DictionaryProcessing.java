@@ -1,9 +1,8 @@
 package net.projecteuler.util.numbertoword;
 
 import java.util.List;
-import java.util.Optional;
 
-public class UtilFun {
+public class DictionaryProcessing {
 
   private static final List<Number> dictionary = List.of(
     new Number(1, "one"),
@@ -26,7 +25,6 @@ public class UtilFun {
     new Number(18, "eighteen"),
     new Number(19, "nineteen"),
     new Number(20, "twenty"),
-    new Number(20, "twenty"),
     new Number(30, "thirty"),
     new Number(40, "forty"),
     new Number(50, "fifty"),
@@ -38,11 +36,11 @@ public class UtilFun {
     new Number(1000, "thousand")
   );
 
-  public static Optional<NumberResult> numberResultFor(int number) {
+  protected String wordForNumber(int number) {
     var result = dictionary.stream()
       .filter(n -> n.number() == number)
       .findFirst()
-      .orElseThrow(() -> new IllegalArgumentException("No value present for number: " + number));
-    return Optional.of(new NumberResult(result.wordRepresentation()));
+      .orElseThrow(() -> new IllegalArgumentException("No word present for number: " + number));
+    return result.wordRepresentation();
   }
 }

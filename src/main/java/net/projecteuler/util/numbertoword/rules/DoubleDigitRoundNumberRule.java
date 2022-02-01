@@ -6,11 +6,10 @@ import net.projecteuler.util.numbertoword.NumberRule;
 
 import java.util.Optional;
 
-public class SingleDigitNumberRule extends DictionaryProcessing implements NumberRule {
-
+public class DoubleDigitRoundNumberRule extends DictionaryProcessing implements NumberRule {
   @Override
   public Optional<NumberResult> evaluate(int number) {
-    if (number >= 1 && number < 10) {
+    if (number > 20 && number < 100 && number % 10 == 0) {
       return Optional.of(new NumberResult(wordForNumber(number)));
     }
     return Optional.empty();

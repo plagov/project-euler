@@ -2,9 +2,11 @@ package net.projecteuler.util.numbertoword;
 
 import net.projecteuler.util.numbertoword.rules.DoubleDigitNumberFromTwentyUpToHundredRule;
 import net.projecteuler.util.numbertoword.rules.DoubleDigitNumberUpToTwentyRule;
+import net.projecteuler.util.numbertoword.rules.DoubleDigitRoundNumberRule;
 import net.projecteuler.util.numbertoword.rules.OneThousandNumberRule;
 import net.projecteuler.util.numbertoword.rules.SingleDigitNumberRule;
 import net.projecteuler.util.numbertoword.rules.ThreeDigitNumberRule;
+import net.projecteuler.util.numbertoword.rules.ThreeDigitRoundNumberRule;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,7 +16,9 @@ public class NumberToWordRuleEngine {
     new SingleDigitNumberRule(),
     new DoubleDigitNumberUpToTwentyRule(),
     new DoubleDigitNumberFromTwentyUpToHundredRule(),
+    new DoubleDigitRoundNumberRule(),
     new ThreeDigitNumberRule(),
+    new ThreeDigitRoundNumberRule(),
     new OneThousandNumberRule()
   );
 

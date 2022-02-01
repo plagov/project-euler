@@ -6,12 +6,13 @@ import net.projecteuler.util.numbertoword.NumberRule;
 
 import java.util.Optional;
 
-public class SingleDigitNumberRule extends DictionaryProcessing implements NumberRule {
+public class ThreeDigitRoundNumberRule extends DictionaryProcessing implements NumberRule {
 
   @Override
   public Optional<NumberResult> evaluate(int number) {
-    if (number >= 1 && number < 10) {
-      return Optional.of(new NumberResult(wordForNumber(number)));
+    if (number >= 100 && number < 1000 && number % 100 == 0) {
+      int firstDigit = number / 100;
+      return Optional.of(new NumberResult("%s %s".formatted(wordForNumber(firstDigit), wordForNumber(100))));
     }
     return Optional.empty();
   }
