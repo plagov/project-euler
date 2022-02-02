@@ -8,8 +8,9 @@ public class Problem017 {
 
   public long solve() {
     var ruleEngine = new NumberToWordRuleEngine();
-    return IntStream.rangeClosed(1, 1000)
-      .mapToObj(ruleEngine::process)
+    var numberResultStream = IntStream.rangeClosed(1, 1000)
+      .mapToObj(ruleEngine::process);
+    return numberResultStream
       .map(word -> word.value().replaceAll("\\s|-", ""))
       .map(String::length)
       .mapToLong(Integer::longValue)

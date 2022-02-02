@@ -1,6 +1,11 @@
 package net.projecteuler.util.numbertoword;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,29 +18,34 @@ public class NumberToWordTest {
     assertEquals("six", ruleEngine.process(6).value());
   }
 
-  @Test
-  void testDoubleDigitUpToTwenty() {
-    assertEquals("fifteen", ruleEngine.process(15).value());
+  @ParameterizedTest
+  @MethodSource("twoDigitsNumbers")
+  void testTwoDigitNumber(int input, String expectedWord) {
+    assertEquals(expectedWord, ruleEngine.process(input).value());
   }
 
-  @Test
-  void testDoubleDigitFromTwenty() {
-    assertEquals("fifty three", ruleEngine.process(53).value());
+  private static Stream<Arguments> twoDigitsNumbers() {
+    return Stream.of(
+      Arguments.of(15, "fifteen"),
+      Arguments.of(53, "fifty three"),
+      Arguments.of(50, "fifty")
+    );
   }
 
-  @Test
-  void testDoubleDigitRoundNumber() {
-    assertEquals("fifty", ruleEngine.process(50).value());
+  @ParameterizedTest
+  @MethodSource("threeDigitNumbers")
+  void testThreeDigitNumber(int input, String expectedWord) {
+    assertEquals(expectedWord, ruleEngine.process(input).value());
   }
 
-  @Test
-  void testThreeDigitNumber() {
-    assertEquals("three hundred and forty-two", ruleEngine.process(342).value());
-  }
-
-  @Test
-  void testThreeDigitRoundNumber() {
-    assertEquals("three hundred", ruleEngine.process(300).value());
+  private static Stream<Arguments> threeDigitNumbers() {
+    return Stream.of(
+      Arguments.of(342, "three hundred and forty-two"),
+      Arguments.of(300, "three hundred"),
+      Arguments.of(301, "three hundred and one"),
+      Arguments.of(310, "three hundred and ten"),
+      Arguments.of(113, "one hundred and thirteen")
+    );
   }
 
   @Test

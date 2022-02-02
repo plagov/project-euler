@@ -1,18 +1,21 @@
 plugins {
     java
     id("info.solidsoft.pitest") version "1.7.0"
-    id("org.jetbrains.qodana") version "0.1.13"
+  id("org.jetbrains.qodana") version "0.1.13"
 }
 
 group = "io.plagov"
 version = "1.0-SNAPSHOT"
 
 repositories {
-    mavenCentral()
+  mavenCentral()
 }
 
+val junitVersion = "5.8.2"
+
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
+  implementation("org.junit.jupiter:junit-jupiter:$junitVersion")
+  implementation("org.junit.jupiter:junit-jupiter-params:$junitVersion")
 }
 
 java {

@@ -10,9 +10,22 @@ public class ThreeDigitRoundNumberRule extends DictionaryProcessing implements N
 
   @Override
   public Optional<NumberResult> evaluate(int number) {
-    if (number >= 100 && number < 1000 && number % 100 == 0) {
-      int firstDigit = number / 100;
-      return Optional.of(new NumberResult("%s %s".formatted(wordForNumber(firstDigit), wordForNumber(100))));
+    var stringInt = Integer.toString(number);
+    if (stringInt.length() == 3 && stringInt.contains("0")) {
+      var array = stringInt.split("");
+      String firstWord = "%s %s".formatted(wordForNumber(Integer.parseInt(array[0])), wordForNumber(100));
+      if (array[1].equals("0") && !array[2].equals("0")) {
+        String thirdWord = wordForNumber(Integer.parseInt(array[2]));
+        return Optional.of(new NumberResult("%s and %s".formatted(firstWord, thirdWord)));
+      }
+      if (!array[1].equals("0") && array[2].equals("0")) {
+        int secondDigit = Integer.parseInt(array[1]) * 10;
+        String secondWord = wordForNumber(secondDigit);
+        return Optional.of(new NumberResult("%s and %s".formatted(firstWord, secondWord)));
+      }
+      if (array[1].equals("0")) {
+        return Optional.of(new NumberResult(firstWord));
+      }
     }
     return Optional.empty();
   }
