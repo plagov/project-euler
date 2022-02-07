@@ -6,6 +6,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class FileUtil {
@@ -22,5 +24,10 @@ public class FileUtil {
     } catch (URISyntaxException | IOException exception) {
       throw new IllegalArgumentException("Invalid location: " + resourceFile, exception);
     }
+  }
+
+  public static List<List<Integer>> parseFileTo2dListOfIntegers(String resourceFile) {
+    return Arrays.stream(FileUtil.readInputFile(resourceFile).split("\n"))
+      .map(line -> Arrays.stream(line.split(" ")).map(Integer::valueOf).toList()).toList();
   }
 }

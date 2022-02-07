@@ -6,11 +6,11 @@ import java.util.List;
 
 public class MaximumPathSum {
 
-  public static Long maximumPathSum(List<List<Long>> listOfRows) {
+  public static int maximumPathSum(List<List<Integer>> listOfRows) {
     var finalList = new ArrayList<>(listOfRows);
 
     for (var i = listOfRows.size() - 1; i-- > 0; ) {
-      List<Long> listOfSums = new ArrayList<>();
+      List<Integer> listOfSums = new ArrayList<>();
       for (var k = 0; k < listOfRows.get(i).size(); k++) {
         var currentLine = listOfRows.get(i);
         var belowLine = finalList.get(finalList.size() - 1);
