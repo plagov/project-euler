@@ -3,7 +3,6 @@ package net.projecteuler.problems;
 import net.projecteuler.util.FileUtil;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -12,8 +11,7 @@ import java.util.stream.Stream;
 public class Problem011 {
 
   public int solve() {
-    var input = Arrays.stream(FileUtil.readInputFile("problem011.txt").split("\n"))
-      .map(line -> Arrays.stream(line.split(" ")).map(Integer::valueOf).toList()).toList();
+    var input = FileUtil.parseFileTo2dListOfIntegers("problem011.txt");
 
     var window = 4;
 
