@@ -13,7 +13,7 @@ public class PrimeFactorization {
     while (remainder != 1) {
       if (remainder % prime == 0) {
         primes.add(prime);
-        remainder = remainder / prime;
+        remainder /= prime;
       } else {
         prime++;
       }
