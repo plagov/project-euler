@@ -14,7 +14,7 @@ public class Problem022 {
 
     return sortedName.stream()
       .map(n -> (sortedName.indexOf(n) + 1) * scoreOfName(n))
-      .reduce(0, Integer::sum);
+      .reduce(0, Math::addExact);
   }
 
   private int scoreOfName(String name) {
