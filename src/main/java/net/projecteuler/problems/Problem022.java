@@ -6,14 +6,14 @@ import java.util.Arrays;
 
 public class Problem022 {
   public int solve() {
-    var sortedName = Arrays.stream(FileUtil.readInputFile("problem022.txt")
+    var sortedNames = Arrays.stream(FileUtil.readInputFile("problem022.txt")
         .split(","))
       .map(s -> s.replaceAll("^\"|\"$", ""))
       .sorted()
       .toList();
 
-    return sortedName.stream()
-      .map(n -> (sortedName.indexOf(n) + 1) * scoreOfName(n))
+    return sortedNames.stream()
+      .map(n -> (sortedNames.indexOf(n) + 1) * scoreOfName(n))
       .reduce(0, Math::addExact);
   }
 
