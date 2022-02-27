@@ -16,12 +16,15 @@ public class Problem023 {
       .toList();
 
     var sums = new HashSet<Integer>();
+    var sum = 0;
 
-    for (Integer i : abundantNumbers) {
-      for (Integer k : abundantNumbers) {
-        var sum = i + k;
-        if (sum < UPPER_BOUND) {
-          sums.add(sum);
+    for (int i : abundantNumbers) {
+      if (!sums.contains(sum)) {
+        for (int k : abundantNumbers) {
+          sum = i + k;
+          if (sum < UPPER_BOUND) {
+            sums.add(sum);
+          }
         }
       }
     }
