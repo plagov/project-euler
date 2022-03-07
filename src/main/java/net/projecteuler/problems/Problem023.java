@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class Problem023 {
 
-  public static final int UPPER_BOUND = 28_123;
+  private static final int UPPER_BOUND = 28_123;
 
   public long solve() {
     var abundantNumbers = IntStream.range(1, UPPER_BOUND)
