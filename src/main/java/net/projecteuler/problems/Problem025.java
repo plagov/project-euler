@@ -1,38 +1,32 @@
 package net.projecteuler.problems;
 
+import java.math.BigInteger;
+
 public class Problem025 {
 
-  private static final double GOLDEN_RATIO = 1.618034;
+  public static final int NUMBER_OF_DIGITS_OF_FIBONACCI_NUMBER = 1_000;
 
-  long f1 = 1;
-  long f2 = 1;
+  private BigInteger f1 = BigInteger.valueOf(0);
+  private BigInteger f2 = BigInteger.valueOf(1);
 
-  public long solve() {
+  public int solve() {
 
-    long fibNumber = 0;
-    long index = 1;
-
-    while (true) {
-      fibNumber = nextFibonacciNumber();
-      var stringResult = String.valueOf(fibNumber);
-      if (stringResult.length() == 1000) {
-        break;
-      }
-    }
+    var fibonacciNumber = BigInteger.ZERO;
+    var indexOfNextUnknownNumber = 2;
 
     while (true) {
-      double numberByIndex = (Math.pow(GOLDEN_RATIO, index) - Math.pow(1 - GOLDEN_RATIO, index)) / Math.sqrt(5);
-      if (fibNumber == Math.round(numberByIndex)) {
+      fibonacciNumber = nextFibonacciNumber();
+      if (fibonacciNumber.toString().length() == NUMBER_OF_DIGITS_OF_FIBONACCI_NUMBER) {
         break;
       }
-      index++;
+      indexOfNextUnknownNumber++;
     }
 
-    return index;
+    return indexOfNextUnknownNumber;
   }
 
-  private long nextFibonacciNumber() {
-    var next = f1 + f2;
+  private BigInteger nextFibonacciNumber() {
+    var next = f1.add(f2);
     f1 = f2;
     f2 = next;
     return next;
