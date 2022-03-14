@@ -1,6 +1,6 @@
 plugins {
     java
-    id("info.solidsoft.pitest") version "1.7.0"
+    id("info.solidsoft.pitest") version "1.7.4"
   id("org.jetbrains.qodana") version "0.1.13"
 }
 
