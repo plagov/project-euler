@@ -10,20 +10,22 @@ public class Problem026 {
   private static final int UPPER_BOUND = 1000;
 
   public int solve() {
-    Map<Integer, List<Integer>> map = new HashMap<>();
+    Map<Integer, Integer> map = new HashMap<>();
     for (int d = 2; d < UPPER_BOUND; d++) {
       List<Integer> list = new ArrayList<>();
-      var x = 1;
+      var remainder = 1;
       while (true) {
-        var remainder = x % d;
+        remainder %= d;
         if (list.contains(remainder) || remainder == 0) {
           break;
         }
         list.add(remainder);
-        x *= 10;
+        remainder *= 10;
       }
-      map.put(d, list);
+      map.put(d, list.size());
     }
-    return -1;
+    return map.entrySet().stream().max(Map.Entry.comparingByValue())
+      .orElseThrow()
+      .getKey();
   }
 }

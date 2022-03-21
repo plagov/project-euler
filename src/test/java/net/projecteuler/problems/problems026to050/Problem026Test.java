@@ -8,6 +8,6 @@ public class Problem026Test {
 
   @Test
   void solve() {
-    assertEquals(-1, new Problem026().solve());
+    assertEquals(983, new Problem026().solve());
   }
 }
