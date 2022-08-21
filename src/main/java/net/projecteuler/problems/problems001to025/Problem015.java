@@ -1,18 +1,24 @@
 package net.projecteuler.problems.problems001to025;
 
+import java.util.HashMap;
+
 public class Problem015 {
 
+  private final HashMap<String, Long> memory = new HashMap<>();
+
   public long solve() {
-    long[][] grid = new long[21][21];
-    for (var i = 0; i < grid.length; i++) {
-      grid[0][i] = 1;
-      grid[i][0] = 1;
-    }
-    for (var i = 1; i < grid.length; i++) {
-      for (var k = 1; k < grid.length; k++) {
-        grid[i][k] = grid[i][k - 1] + grid[i - 1][k];
-      }
-    }
-    return grid[20][20];
+    return gridTraveler(21, 21);
   }
+
+  private long gridTraveler(int x, int y) {
+    var key = x + "," + y;
+
+    if (memory.containsKey(key)) return memory.get(key);
+    if (x == 1 && y == 1) return 1;
+    if (x == 0 || y == 0) return 0;
+
+    memory.put(key, gridTraveler(x - 1, y) + gridTraveler(x, y - 1));
+    return memory.get(key);
+  }
+
 }
