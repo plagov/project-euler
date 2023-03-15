@@ -15,7 +15,7 @@ public class Problem024 {
 
     for (int i = 1; i < str.length() + 1; i++) {
       remainders.addFirst(n % i);
-      n = n / i;
+      n /= i;
     }
 
     StringBuilder result = new StringBuilder();
